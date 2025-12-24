@@ -51,11 +51,11 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto relative">
           {/* Header with Badge */}
           <div className="text-center mb-12 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full mb-6 border-2 border-[#415a77]/20 shadow-lg">
-              <svg className="w-5 h-5 text-[#415a77]" fill="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full mb-6 border-2 border-[#415a77]/20 shadow-lg hover:border-[#EB6358] hover:shadow-lg transition-all duration-300">
+              <svg className="w-5 h-5 text-[#415a77] hover:text-[#EB6358] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
-              <span className="text-sm font-bold text-[#1F2A44] uppercase tracking-wider">Start Your Publishing Journey</span>
+              <span className="text-sm font-bold text-[#1F2A44] uppercase tracking-wider hover:text-[#EB6358] transition-colors duration-300">Start Your Publishing Journey</span>
             </div>
           </div>
         
@@ -75,7 +75,6 @@ export default function Footer() {
             <div className="page pageLeft relative">
               {/* Decorative Corner Element */}
               <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-[#415a77]/20 rounded-tl-3xl"></div>
-              
               <div className="relative z-10">
                 <h2 style={{color: 'var(--text)'}} className="text-3xl md:text-4xl font-black mb-4 tracking-tight group-hover:scale-105 transition-transform duration-500">
                   Ready to Publish?
@@ -83,16 +82,29 @@ export default function Footer() {
                 <p style={{color: 'var(--text-muted)'}} className="text-base md:text-lg font-medium mb-10 leading-relaxed">
                   Join hundreds of authors who've brought their books to life
                 </p>
-
-                <div className="space-y-6">
-                  {/* Name Field */}
-                  <div className={`relative transition-all duration-500 ${
-                    focusedField === 'name' ? 'transform scale-105' : ''
-                  }`}>
+                <div className="space-y-8">
+                                    
+                  {/* Tell Us More Field (moved from right page) */}
+                  <div className={`relative transition-all duration-500 ${focusedField === 'message' ? 'transform scale-105' : ''}`}>
                     <div style={{background: 'linear-gradient(135deg, #F8F9FB 0%, #F0F3F7 100%)'}} 
-                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${
-                      focusedField === 'name' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'
-                    }`}>
+                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${focusedField === 'message' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'}`}>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedField('message')}
+                        onBlur={() => setFocusedField(null)}
+                        placeholder="Tell us about your manuscript..."
+                        rows="4"
+                        className="w-full px-6 py-4 bg-transparent text-gray-900 placeholder-gray-400 outline-none resize-none font-medium text-base leading-relaxed"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                  {/* Name Field */}
+                  <div className={`relative transition-all duration-500 ${focusedField === 'name' ? 'transform scale-105' : ''}`}>
+                    <div style={{background: 'linear-gradient(135deg, #F8F9FB 0%, #F0F3F7 100%)'}} 
+                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${focusedField === 'name' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'}`}>
                       <input
                         type="text"
                         name="name"
@@ -115,15 +127,10 @@ export default function Footer() {
                       </div>
                     )}
                   </div>
-
                   {/* Email Field */}
-                  <div className={`relative transition-all duration-500 ${
-                    focusedField === 'email' ? 'transform scale-105' : ''
-                  }`}>
+                  <div className={`relative transition-all duration-500 ${focusedField === 'email' ? 'transform scale-105' : ''}`}>
                     <div style={{background: 'linear-gradient(135deg, #F8F9FB 0%, #F0F3F7 100%)'}} 
-                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${
-                      focusedField === 'email' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'
-                    }`}>
+                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${focusedField === 'email' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'}`}>
                       <input
                         type="email"
                         name="email"
@@ -146,15 +153,10 @@ export default function Footer() {
                       </div>
                     )}
                   </div>
-
                   {/* Phone Field */}
-                  <div className={`relative transition-all duration-500 ${
-                    focusedField === 'phone' ? 'transform scale-105' : ''
-                  }`}>
+                  <div className={`relative transition-all duration-500 ${focusedField === 'phone' ? 'transform scale-105' : ''}`}>
                     <div style={{background: 'linear-gradient(135deg, #F8F9FB 0%, #F0F3F7 100%)'}} 
-                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${
-                      focusedField === 'phone' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'
-                    }`}>
+                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${focusedField === 'phone' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'}`}>
                       <input
                         type="tel"
                         name="phone"
@@ -166,6 +168,18 @@ export default function Footer() {
                         className="w-full px-6 py-4 bg-transparent text-gray-900 placeholder-gray-400 outline-none font-medium text-base"
                       />
                     </div>
+                    {/* Submit Your Manuscript Button (restore, left page) */}
+                                    <div className="text-center mt-8 mb-6">
+                                      <button
+                                        type="submit"
+                                        className="bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#EB6358] hover:to-[#D95341] text-white font-bold text-lg px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3"
+                                      >
+                                        <span>Submit Your Manuscript</span>
+                                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
+                                      </button>
+                                    </div>
                     {focusedField === 'phone' && (
                       <div className="absolute -right-3 top-1/2 -translate-y-1/2">
                         <div className="w-6 h-6 bg-gradient-to-br from-[#415a77] to-[#1F2A44] rounded-full flex items-center justify-center shadow-lg animate-bounce">
@@ -178,7 +192,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-              
               {/* Bottom Corner Element */}
               <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-[#1F2A44]/20 rounded-br-3xl"></div>
             </div>
@@ -187,69 +200,23 @@ export default function Footer() {
             <div className="page pageRight relative">
               {/* Decorative Corner Element */}
               <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-[#1F2A44]/20 rounded-tr-3xl"></div>
-              
-              <div className="relative z-10">
-                <h3 style={{color: 'var(--text)'}} className="text-2xl md:text-3xl font-black mb-8 tracking-tight">
-                  Tell Us More
-                </h3>
-
-                <div className="space-y-6">
-                  {/* Message Field */}
-                  <div className={`relative transition-all duration-500 ${
-                    focusedField === 'message' ? 'transform scale-105' : ''
-                  }`}>
-                    <div style={{background: 'linear-gradient(135deg, #F8F9FB 0%, #F0F3F7 100%)'}} 
-                         className={`rounded-xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${
-                      focusedField === 'message' ? 'border-[#415a77] shadow-[0_8px_30px_rgba(65,90,119,0.25)]' : 'border-gray-200 hover:border-[#415a77]/50'
-                    }`}>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        onFocus={() => setFocusedField('message')}
-                        onBlur={() => setFocusedField(null)}
-                        placeholder="Tell us about your manuscript..."
-                        rows="7"
-                        className="w-full px-6 py-4 bg-transparent text-gray-900 placeholder-gray-400 outline-none resize-none font-medium text-base leading-relaxed"
-                        required
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="text-center mt-10">
-                    <div className="relative inline-block mb-6">
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#415a77] to-[#1F2A44] rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                      <button
-                        type="submit"
-                        className="relative bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#415a77] hover:to-[#1F2A44] text-white font-bold text-lg px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3"
-                      >
-                        <span>Submit Manuscript</span>
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </button>
-                    </div>
-                    
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
-                      <span className="text-sm text-gray-500 font-medium">or</span>
-                      <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
-                    </div>
-                    
-                    <button 
-                      type="button" 
-                      className="mt-4 text-[#1F2A44] hover:text-[#415a77] font-bold text-base transition-all duration-300 hover:scale-110 inline-flex items-center gap-2 group"
-                    >
-                      <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <span className="border-b-2 border-[#1F2A44] group-hover:border-[#415a77]">Talk to an Agent</span>
-                    </button>
-                  </div>
+              <div className="relative z-10 flex flex-col items-center justify-center">
+                {/* Small Google Map Embed */}
+                <h3 style={{color: 'var(--text)'}} className="text-2xl md:text-3xl font-black mb-4 tracking-tight text-center">Our Location</h3>
+                <div className="rounded-2xl overflow-hidden border border-[#E5E9F0] shadow-lg mb-6" style={{width:'100%',height:'350px',minHeight:'350px',maxWidth:'100%'}}>
+                  <iframe
+                    title="Franklin Publishers Location"
+                    src="https://www.google.com/maps?q=7345+W+Sand+Lake+Rd,+Orlando,+FL+32819&output=embed"
+                    width="120%"
+                    height="120%"
+                    style={{border:0,width:'100%',height:'100%'}}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
+                <div className="text-sm text-gray-600 text-center">7345 W Sand Lake Rd, Orlando, FL 32819</div>
               </div>
-              
               {/* Bottom Corner Element */}
               <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-[#415a77]/20 rounded-bl-3xl"></div>
             </div>

@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { PenTool } from 'lucide-react';
 
 const authorsData = [
   {
@@ -52,11 +53,18 @@ const AuthorsSpotlight = () => {
     <section style={{background: 'var(--bg)'}} className="w-full py-16 px-4">
       {/* Heading - OUTSIDE Container */}
       <div className="text-center mb-12">
-        <h2 style={{color: 'var(--text)', borderTopColor: 'var(--accent)'}} className="text-4xl md:text-5xl font-black mb-3 border-t-4 inline-block pt-4">
+        {/* Pen Icon */}
+        <div className="flex justify-center mb-4">
+          <PenTool 
+            className="w-16 h-16 text-[#1f2a44] hover:text-[#EB6358] transition-all duration-300 cursor-pointer hover:scale-110 hover:rotate-12"
+            strokeWidth={1.5}
+          />
+        </div>
+        <h2 className="text-4xl md:text-5xl font-black mb-3 inline-block transition-colors duration-300 text-gray-900 hover:text-[#EB6358] cursor-pointer">
           Author&apos;s Spotlight
         </h2>
         <div style={{background: 'var(--border)'}} className="w-full max-w-md mx-auto h-[1px] mb-5 mt-3"></div>
-        <p style={{color: 'var(--text-muted)'}} className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg max-w-3xl mx-auto leading-relaxed transition-colors duration-300 text-gray-600 hover:text-[#EB6358] cursor-pointer">
           Each month, we shine a light on one of our remarkable authors. Dive into their creative process, 
           learn about their journey to publication, and get a glimpse into the world they&apos;ve crafted.
         </p>
@@ -123,14 +131,14 @@ const AuthorsSpotlight = () => {
             {/* D) Text Block + Button */}
             <div className="bg-gradient-to-br from-white via-[#FAFBFC] to-[#F6F7F9] relative px-6 py-5 flex flex-col items-center justify-center text-center">
               <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                <p style={{color: 'var(--text-muted)'}} className="text-sm md:text-[15px] leading-6 line-clamp-[8] mb-2">
+                <p className="text-sm md:text-[15px] leading-6 line-clamp-[8] mb-2 transition-colors duration-300 text-gray-600 hover:text-[#EB6358] cursor-pointer">
                   {authorsData[currentIndex].bio}
                 </p>
               </div>
               
               <button 
                 onClick={() => window.location.href = authorsData[currentIndex].profileHref}
-                className="primary-button absolute bottom-4 right-4"
+                className="absolute bottom-4 right-4 bg-[#1f2a44] hover:bg-[#EB6358] text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 border-2 border-black"
               >
                 Author Profile
               </button>
@@ -175,13 +183,13 @@ const AuthorsSpotlight = () => {
             {/* Text Block */}
             <div className="bg-gradient-to-br from-white via-[#FAFBFC] to-[#F6F7F9] p-5 relative flex-1 flex flex-col justify-between">
               <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                <p style={{color: 'var(--text-muted)'}} className="text-sm leading-6 text-center mb-16">
+                <p className="text-sm leading-6 text-center mb-16 transition-colors duration-300 text-gray-600 hover:text-[#EB6358] cursor-pointer">
                   {authorsData[currentIndex].bio}
                 </p>
               </div>
               <button 
                 onClick={() => window.location.href = authorsData[currentIndex].profileHref}
-                className="primary-button w-full"
+                className="bg-[#1f2a44] hover:bg-[#EB6358] text-white px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 w-full border-2 border-black"
               >
                 Author Profile
               </button>

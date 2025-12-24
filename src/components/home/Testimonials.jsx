@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  // heading hover-based interactivity only
+  const [isHeadingHover, setIsHeadingHover] = useState(false);
   const cardsToShow = 3;
 
   const testimonials = [
@@ -53,10 +55,12 @@ export default function Testimonials() {
     return testimonials.slice(start, start + cardsToShow);
   };
 
+  // hover-based heading; no scroll logic
+
   return (
-    <section className="py-24 bg-gradient-to-br from-[#F6F7F9] via-white to-[#E8EDF2] relative overflow-hidden">
+    <section className="group py-24 bg-gradient-to-br from-[#F6F7F9] via-white to-[#E8EDF2] relative overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         {/* Gradient Orbs */}
         <div className="absolute top-20 left-10 w-[500px] h-[500px] bg-gradient-to-br from-[#415a77]/10 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-gradient-to-tl from-[#1F2A44]/10 to-transparent rounded-full blur-3xl"></div>
@@ -70,17 +74,17 @@ export default function Testimonials() {
 
         {/* Floating Book Icons */}
         <div className="absolute top-32 right-20 opacity-5 animate-float">
-          <svg className="w-24 h-24 text-[#415a77]" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-24 h-24 text-[#1F2A44] transition-colors group-hover:text-[#EB6358]" fill="currentColor" viewBox="0 0 24 24">
             <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
           </svg>
         </div>
         <div className="absolute bottom-40 left-16 opacity-5 animate-float" style={{animationDelay: '1s'}}>
-          <svg className="w-20 h-20 text-[#1F2A44]" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-20 h-20 text-[#1F2A44] transition-colors group-hover:text-[#EB6358]" fill="currentColor" viewBox="0 0 24 24">
             <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
           </svg>
         </div>
         <div className="absolute top-1/3 left-1/4 opacity-5 animate-float" style={{animationDelay: '2s'}}>
-          <svg className="w-16 h-16 text-[#415a77]" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-16 h-16 text-[#415a77] transition-colors group-hover:text-[#EB6358]" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
         </div>
@@ -115,7 +119,12 @@ export default function Testimonials() {
               <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#415a77]"></div>
             </div>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-[#1F2A44] mb-6 leading-tight">
+          <h2
+            tabIndex={0}
+            className="text-5xl md:text-6xl font-black text-[#1F2A44] mb-6 leading-tight transform transition-all duration-300 transition-colors hover:scale-105 hover:drop-shadow-lg hover:text-[#EB6358] focus:text-[#EB6358] focus-visible:text-[#EB6358] outline-none cursor-pointer"
+            aria-label="Testimonials heading"
+            role="heading"
+          >
             Don't just take our word for it.
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">

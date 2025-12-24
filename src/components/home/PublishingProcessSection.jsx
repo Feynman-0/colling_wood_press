@@ -216,10 +216,10 @@ export default function PublishingProcessSection() {
         }`}
         style={{ transitionDelay: '800ms' }}
       >
-        <button className="px-10 py-4 bg-[#1f2a44] hover:bg-[#415a77] border-4 border-gray-900 rounded-2xl text-xl font-extrabold text-white transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+        <button className="px-10 py-4 bg-[#1f2a44] hover:bg-[#EB6358] border-4 border-gray-900 rounded-2xl text-xl font-extrabold text-white transform hover:scale-105 hover:shadow-xl transition-all duration-300">
           Connect with a Literary Agent!
         </button>
-        <button className="px-10 py-4 bg-[#1f2a44] hover:bg-[#415a77] border-4 border-gray-900 rounded-2xl text-xl font-extrabold text-white transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+        <button className="px-10 py-4 bg-[#EB6358] hover:bg-[#1f2a44] border-4 border-gray-900 rounded-2xl text-xl font-extrabold text-white transform hover:scale-105 hover:shadow-xl transition-all duration-300">
           Submit Your Manuscript
         </button>
       </div>

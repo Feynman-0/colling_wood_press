@@ -257,7 +257,7 @@ const TestimonialsCarousel = () => {
               </div>
 
               {/* Main Heading */}
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1F2A44] mb-6 leading-tight group-hover:scale-[1.02] transition-transform duration-300">
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1F2A44] mb-6 leading-tight transition-transform duration-300 hover:scale-[1.02] hover:text-[#EB6358] cursor-pointer">
                 Request a <span className="bg-gradient-to-r from-[#415a77] to-[#1F2A44] bg-clip-text text-transparent">Manuscript Review</span>
               </h3>
 
@@ -305,7 +305,7 @@ const TestimonialsCarousel = () => {
               {/* Premium Button */}
               <div className="relative inline-block">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#415a77] to-[#1F2A44] rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                <button className="relative bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#415a77] hover:to-[#1F2A44] text-white font-bold text-lg uppercase tracking-wider px-12 py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 group">
+                <button className="relative bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#EB6358] hover:to-[#1F2A44] text-white font-bold text-lg uppercase tracking-wider px-12 py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 group">
                   <span>Submit Your Manuscript</span>
                   <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />

@@ -70,9 +70,26 @@ const booksData = [
 const RecommendedReads = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState('next');
   const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  // Observe heading for color-on-scroll
+  useEffect(() => {
+    const heading = headingRef.current;
+    if (!heading) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(heading);
+    return () => observer.disconnect();
+  }, []);
+
+  // NOTE: hover will control color; keeping IntersectionObserver for visibility if needed
 
   const booksPerPage = 3;
   const totalPages = Math.ceil(booksData.length / booksPerPage);
@@ -159,21 +176,13 @@ const RecommendedReads = () => {
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 style={{color: 'var(--text)', borderTopColor: 'var(--accent)'}} className="text-4xl md:text-5xl font-black mb-3 border-t-4 inline-block pt-4">
+          <h2 className="text-4xl md:text-5xl font-black mb-3 border-t-4 inline-block pt-4 text-gray-900 border-[#1f2a44] transition-colors duration-300 hover:text-[#EB6358] cursor-pointer hover:border-[#EB6358]">
             Recommended Reads
           </h2>
           <div style={{background: 'var(--border)'}} className="w-full max-w-md mx-auto h-[1px] mb-5 mt-3"></div>
-          <p style={{color: 'var(--text-muted)'}} className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed text-gray-600">
             Looking for your next great read? Explore our curated selection of exceptional books from our talented pool of published authors. Discover diverse voices and stories that will transport you, inspire you, and stay with you long after the last page.
           </p>
-        </div>
-
-        {/* Main Container - Franklin's Proud Publishings */}
-        <div 
-          style={{background: 'white', borderColor: 'var(--border)', boxShadow: 'var(--shadow)', borderRadius: 'var(--radius)'}}
-          className="border overflow-hidden mb-8"
-        >
-          {/* Container Heading - Colored Background */}
           <div 
             style={{
               background: 'var(--surface)',
@@ -183,7 +192,7 @@ const RecommendedReads = () => {
               borderBottomColor: 'var(--border)',
               borderRadius: 'var(--radius) var(--radius) 0 0'
             }}
-            className="py-4 px-8 relative overflow-hidden cursor-pointer group transition-all duration-300 hover:bg-[var(--surface-2)]"
+            className="py-4 px-8 relative overflow-hidden transition-all duration-300"
           >
             {/* Animated Shine Effect */}
             <div 
@@ -200,10 +209,16 @@ const RecommendedReads = () => {
             <div className="absolute bottom-3 left-16 w-1 h-1 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:animate-bounce" />
             <div className="absolute bottom-2 right-20 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-400 group-hover:animate-ping" />
 
-            <h3 style={{color: 'var(--text)'}} className="text-4xl font-extrabold tracking-tight text-center relative z-10 group-hover:scale-105 transition-transform duration-300">
-              <span className="inline-block group-hover:animate-pulse">Franklin&apos;s</span>{' '}
-              <span className="inline-block group-hover:animate-pulse" style={{ animationDelay: '0.1s' }}>Proud</span>{' '}
-              <span className="inline-block group-hover:animate-pulse" style={{ animationDelay: '0.2s' }}>Publishings!</span>
+            <h3
+              ref={headingRef}
+              style={{ color: '#1f2a44', transition: 'color 0.25s' }}
+              className="text-4xl font-extrabold tracking-tight text-center relative z-10 transform transition-all duration-300 cursor-pointer hover:scale-105 hover:drop-shadow-lg hover:text-[#EB6358]"
+              aria-label="Franklin's Proud Publishings"
+              role="button"
+            >
+              <span className="inline-block">Franklin&apos;s</span>{' '}
+              <span className="inline-block" style={{ animationDelay: '0.1s' }}>Proud</span>{' '}
+              <span className="inline-block" style={{ animationDelay: '0.2s' }}>Publishings!</span>
             </h3>
           </div>
 
@@ -211,25 +226,25 @@ const RecommendedReads = () => {
           <div className="px-8 md:px-12 py-12 bg-gradient-to-br from-white via-[#FAFBFC] to-[#F6F7F9] relative">
             {/* Previous Button */}
             <button
-              onClick={handlePrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border-2 border-black shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 flex items-center justify-center"
-              aria-label="Previous books"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+                onClick={handlePrev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border-2 border-[#EB6358] shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 flex items-center justify-center group"
+                aria-label="Previous books"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="#EB6358" style={{ transition: 'stroke 0.3s' }} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" className="group-hover:stroke-[#1f2a44]" />
+                </svg>
+              </button>
 
             {/* Next Button */}
             <button
-              onClick={handleNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border-2 border-black shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 flex items-center justify-center"
-              aria-label="Next books"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+                onClick={handleNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white border-2 border-[#EB6358] shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 flex items-center justify-center group"
+                aria-label="Next books"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="#EB6358" style={{ transition: 'stroke 0.3s' }} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" className="group-hover:stroke-[#1f2a44]" />
+                </svg>
+              </button>
 
             {/* Carousel Container */}
             <div className="overflow-hidden">
@@ -320,12 +335,12 @@ const RecommendedReads = () => {
 
         {/* View More Button */}
         <div className="flex justify-center">
-          <button
-            onClick={() => window.location.href = '/books'}
-            className="primary-button text-sm uppercase tracking-wide px-10 py-3"
-          >
-            View More
-          </button>
+            <button
+              onClick={() => window.location.href = '/books'}
+              className="text-sm uppercase tracking-wide px-10 py-3 rounded-full font-bold shadow-md bg-[#1f2a44] hover:bg-[#EB6358] text-white transition-colors duration-300"
+            >
+              View More
+            </button>
         </div>
       </div>
     </section>

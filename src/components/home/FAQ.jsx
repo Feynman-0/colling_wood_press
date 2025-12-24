@@ -139,7 +139,7 @@ export default function FAQ() {
                   <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm transition-all duration-500 ${
                     openIndex === index 
                       ? 'bg-gradient-to-br from-[#1F2A44] to-[#415a77] text-white scale-110 shadow-lg' 
-                      : 'bg-gray-100 text-gray-400 group-hover:bg-[#415a77]/10 group-hover:text-[#415a77]'
+                      : 'bg-[#1F2A44] text-white group-hover:bg-[#EB6358]'
                   }`}>
                     {String(index + 1).padStart(2, '0')}
                   </div>
@@ -172,7 +172,7 @@ export default function FAQ() {
                         openIndex === index 
                           ? 'opacity-0 rotate-90 scale-50' 
                           : 'opacity-100 rotate-0 scale-100 group-hover:rotate-90 group-hover:scale-110'
-                      }`}
+                      } group-hover:text-[#EB6358]`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -212,7 +212,7 @@ export default function FAQ() {
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">Still have questions?</p>
-          <button className="bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#415a77] hover:to-[#1F2A44] text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3">
+          <button className="bg-gradient-to-r from-[#1F2A44] to-[#415a77] hover:from-[#EB6358] hover:to-[#D95341] text-white font-bold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-3">
             <span>Contact Our Team</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

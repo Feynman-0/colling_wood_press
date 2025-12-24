@@ -1,5 +1,4 @@
-import Image from "next/image";
-import logo from "media/images/logo.webp";
+// use public asset for site logo
 import Link from "next/link";
 import MailIcon from "./MailIcon";
 import GlobeIcon from "../GlobeIcon";
@@ -31,7 +30,7 @@ export default function GlobalHeader() {
         <div className='container'>
           <div className="flex flex-row items-center justify-between">
             <div className="logosection ">
-              <Image src={logo} alt="Coolingword Press" className="xs:w-30 xs:h-10.71 sm:w-40 sm:h-12.71 md:w-50 md:h-12.71" />
+              <img src="/assets/images/Collingwood-Site-Logo.png" alt="Collingwood Site Logo" className="w-[220px] md:w-[320px] h-auto object-contain" style={{width: '220px'}} />
             </div>
             <div className="interactionsection ">
               <div className="icons hidden md:block">
@@ -52,7 +51,7 @@ export default function GlobalHeader() {
                 </div>
               </div>
               <div className="flex flex-row gap-1 md:hidden">
-                <div className='block md:hidden border-2 border-black items-center p-1 sm:p-3  rounded-sm md:rounded-xl text-center bg-[#1f2a44] hover:bg-white hover:scale-95 transition-all duration-500'>
+                <div className='block md:hidden border-2 border-black items-center p-1 sm:p-3  rounded-sm md:rounded-xl text-center bg-[#EB6358] hover:bg-[#1f2a44] hover:scale-95 transition-all duration-500'>
                   <p className='text-white text-[12px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-semibold'>Submit Your Manuscript</p>
                 </div>
                 <div className='lg:block border-2 border-black p-1 sm:p-1.28 rounded-sm md:rounded-xl group hover:bg-[#1f2a44] hover:scale-95 transition-all duration-500 '>
@@ -62,9 +61,9 @@ export default function GlobalHeader() {
                       <SheetContent >
                         <SheetHeader>
                           <SheetTitle>
-                            <div className="logosection ">
-                              <Image src={logo} alt="Coolingword Press" className="xs:w-30 xs:h-10.71 sm:w-40 sm:h-12.71 md:w-50 md:h-12.71" />
-                            </div>
+                                <div className="logosection ">
+                                  <img src="/assets/images/Collingwood-Site-Logo.png" alt="Collingwood Site Logo" className="w-[220px] md:w-[320px] h-auto object-contain" style={{width: '220px'}} />
+                                </div>
                           </SheetTitle>
                          
                             <div className="mt-4">

@@ -21,7 +21,7 @@ import Image from "next/image";
 export default function LogoSliderBlock() {
     return (
         <div>
-            <div className='border-2 border-black rounded-sm md:px-5 lg:px-10 md:py-5 lg:py-10 bg-[#1f2a44]'>
+            <div className='border-2 border-black rounded-sm md:px-5 lg:px-10 md:py-5 lg:py-10 bg-[#EB6358]'>
 
                 <Carousel
                     plugins={[

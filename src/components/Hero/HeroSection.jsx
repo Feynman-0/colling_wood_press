@@ -20,8 +20,8 @@ export default function HeroSection({ padding = "pt-80" }) {
                                 </p>
                             </div>
                             <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:gap-2">
-                                <CtaButton />
-                                <CtaButton content="Connect with  Agent" />
+                                <CtaButton className="bg-[#1f2a44] text-white hover:text-white hover:bg-[#EB6358]" />
+                                <CtaButton content="Connect with  Agent" className="bg-[#EB6358] text-white hover:text-white hover:bg-[#1f2a44]" />
                             </div>
                         </div>
                         <div className="order-2 md:ml-0 lg:ml-14">

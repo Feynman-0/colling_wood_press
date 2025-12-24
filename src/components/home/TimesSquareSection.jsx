@@ -65,14 +65,14 @@ export default function TimesSquareSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
-            Get seen on <span className="text-gray-900 hover:text-[#1f2a44] transition-colors duration-300 cursor-pointer">Times Square</span>
+            Get seen on <span className="text-gray-900 hover:text-[#EB6358] transition-colors duration-300 cursor-pointer">Times Square</span>
           </h2>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 transition-colors duration-300 hover:text-gray-700">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 transition-colors duration-300 hover:text-[#EB6358] cursor-pointer">
             Bring Your Book & Brand to Broadway
           </h3>
           <div className="w-32 h-1 bg-gray-900 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600 mb-2 transition-colors duration-300 hover:text-gray-900">From page to display</p>
-          <p className="text-lg text-gray-600 transition-colors duration-300 hover:text-[#1f2a44]">Join our authors making their mark in Manhattan</p>
+          <p className="text-lg text-gray-600 mb-2 transition-colors duration-300 hover:text-[#EB6358] cursor-pointer">From page to display</p>
+          <p className="text-lg text-gray-600 transition-colors duration-300 hover:text-[#EB6358] cursor-pointer">Join our authors making their mark in Manhattan</p>
         </div>
 
         {/* Carousel Container */}

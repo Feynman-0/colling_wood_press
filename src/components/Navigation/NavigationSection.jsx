@@ -33,7 +33,7 @@ export default function NavigationSection() {
                 </div>
             </div>
             <div>
-                <div className='border-2 border-black p-3.75 rounded-xl text-center bg-[#1f2a44] hover:bg-white hover:scale-95 transition-all duration-500'>
+                <div className='border-2 border-black p-3.75 rounded-xl text-center bg-[#EB6358] hover:bg-[#1f2a44] hover:scale-95 transition-all duration-500'>
                     <p className='text-white md:text-[12px] lg:text-[14px] xl:text-[17px] font-semibold'>Submit Your Manuscript</p>
                 </div>
             </div>

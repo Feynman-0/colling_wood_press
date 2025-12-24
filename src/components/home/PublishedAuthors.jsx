@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const publishedAuthorsData = [
   {
@@ -44,6 +44,15 @@ const PublishedAuthors = () => {
   const cardsPerPage = 3;
   const totalPages = Math.ceil(publishedAuthorsData.length / cardsPerPage);
 
+  // Auto-play carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [totalPages]);
+
   const getCurrentCards = () => {
     const start = currentPage * cardsPerPage;
     return publishedAuthorsData.slice(start, start + cardsPerPage);
@@ -54,11 +63,30 @@ const PublishedAuthors = () => {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 style={{color: 'var(--text)', borderTopColor: 'var(--accent)'}} className="text-4xl md:text-5xl font-black mb-3 border-t-4 inline-block pt-4">
+          {/* Decorative curved line */}
+          <div className="flex justify-center mb-4">
+            <svg 
+              width="500" 
+              height="8" 
+              viewBox="0 0 500 8" 
+              className="transition-all duration-300"
+            >
+              <path 
+                d="M 0 4 Q 125 0, 250 4 T 500 4" 
+                stroke="#1f2a44" 
+                strokeWidth="4" 
+                fill="none"
+                strokeLinecap="round"
+                className="transition-all duration-300 hover:stroke-[#EB6358]"
+                style={{ cursor: 'pointer' }}
+              />
+            </svg>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-3 inline-block transition-colors duration-300 text-gray-900 hover:text-[#EB6358] cursor-pointer">
             Published Authors
           </h2>
           <div style={{background: 'var(--border)'}} className="w-full max-w-md mx-auto h-[1px] mb-5 mt-3"></div>
-          <p style={{color: 'var(--text-muted)'}} className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg max-w-4xl mx-auto leading-relaxed text-gray-600 transition-colors duration-300 hover:text-[#EB6358] cursor-pointer">
             Welcome home, fellow storytellers! At Franklin Publishers, we believe in fostering a supportive community for our authors. We offer ongoing resources, marketing assistance, and author events to help you connect with readers and build your platform.
           </p>
         </div>
@@ -124,20 +152,14 @@ const PublishedAuthors = () => {
 
               {/* Text Section */}
               <div className="px-6 py-6 relative h-[250px]">
-                <p style={{color: 'var(--text-muted)'}} className="text-[14px] leading-6 text-center max-w-[240px] mx-auto">
+                <p className="text-[14px] leading-6 text-center max-w-[240px] mx-auto text-gray-600 transition-colors duration-300 hover:text-[#EB6358] cursor-pointer">
                   {author.description}
                 </p>
 
                 {/* Author Profile Button - Bottom Right */}
                 <button
                   onClick={() => window.location.href = author.profileHref}
-                  style={{
-                    background: 'var(--text)',
-                    color: 'white',
-                    borderTopColor: 'var(--border)',
-                    borderLeftColor: 'var(--border)'
-                  }}
-                  className="absolute bottom-0 right-0 font-bold text-xs uppercase tracking-wide px-8 py-3 rounded-tl-[14px] border-t border-l transition-all duration-200 hover:opacity-90"
+                  className="absolute bottom-0 right-0 font-bold text-xs uppercase tracking-wide px-8 py-3 rounded-tl-[14px] border-t border-l transition-all duration-300 bg-[#1f2a44] hover:bg-[#EB6358] text-white border-gray-900"
                 >
                   Author Profile
                 </button>
@@ -151,8 +173,7 @@ const PublishedAuthors = () => {
           {/* Previous Button */}
           <button
             onClick={() => setCurrentPage(currentPage === 0 ? totalPages - 1 : currentPage - 1)}
-            style={{background: 'var(--text)', color: 'white'}}
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:opacity-80"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#EB6358] hover:bg-[#1f2a44] text-white"
             aria-label="Previous page"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,8 +201,7 @@ const PublishedAuthors = () => {
           {/* Next Button */}
           <button
             onClick={() => setCurrentPage((currentPage + 1) % totalPages)}
-            style={{background: 'var(--text)', color: 'white'}}
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:opacity-80"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-[#EB6358] hover:bg-[#1f2a44] text-white"
             aria-label="Next page"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +214,7 @@ const PublishedAuthors = () => {
         <div className="flex justify-center">
           <button
             onClick={() => window.location.href = '/authors'}
-            className="primary-button text-base uppercase tracking-wide px-10 py-4"
+            className="text-base uppercase tracking-wide px-10 py-4 bg-[#1f2a44] hover:bg-[#EB6358] text-white rounded-lg font-bold transition-all duration-300 border-2 border-black"
           >
             View More
           </button>
