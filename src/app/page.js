@@ -1,4 +1,3 @@
-import GlobalHeader from "@/components/Header/GlobalHeader";
 import HeroSection from "@/components/Hero/HeroSection";
 import TimesSquareSection from "@/components/home/TimesSquareSection";
 import ClaritySection from "@/components/home/ClaritySection";
@@ -8,7 +7,6 @@ import HomeSections from "@/components/home/HomeSections";
 export default function Home() {
   return (
     <>
-      <GlobalHeader />
       <HeroSection />
       <TimesSquareSection />
       <ClaritySection />

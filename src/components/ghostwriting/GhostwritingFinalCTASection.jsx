@@ -158,7 +158,7 @@ export default function GhostwritingFinalCTASection() {
             <Sparkle className="absolute left-10 bottom-6 animate-bob3" />
             {/* Card */}
             <div
-              className="flex-1 min-w-[260px] bg-[#FFB7E1] border-[3px] border-black rounded-3xl shadow-[3px_3px_0_#000] flex flex-col justify-between p-8 md:p-12 items-start text-left transition-all duration-200 ease-in-out group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0_#000]"
+              className="flex-1 min-w-[260px] bg-[#fd9783] border-[3px] border-black rounded-3xl shadow-[3px_3px_0_#000] flex flex-col justify-between p-8 md:p-12 items-start text-left transition-all duration-200 ease-in-out group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0_#000]"
               style={{ zIndex: 1 }}
             >
               <div>

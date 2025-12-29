@@ -1,32 +1,21 @@
-import { Vidaloka, Open_Sans } from 'next/font/google'
 import "./globals.css";
+import { Vidaloka } from "next/font/google";
+import GlobalHeader from "@/components/Header/GlobalHeader";
+import Footer from "@/components/home/Footer";
 
 const vidaloka = Vidaloka({
+  subsets: ["latin"],
   weight: ["400"],
-  display: 'swap',
-  subsets: ["latin"],
-  variable: '--font-vidaloka'
-})
-
-const openSans = Open_Sans({
-  weight: ["300", "400", "500", "600", "700"],
-  display: 'swap',
-  subsets: ["latin"],
-  variable: '--font-open-sans'
-})
-
-export const metadata = {
-  title: "Franklin Publishers",
-  description: "Professional publishing services for authors worldwide",
-};
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${vidaloka.variable} ${openSans.variable}`}>
-      <body
-        className={`${openSans.className} antialiased`}
-      >
-        {children}
+    <html lang="en">
+      <body className={`${vidaloka.className} font-sans`}>
+        <GlobalHeader />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

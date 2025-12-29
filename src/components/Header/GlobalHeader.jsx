@@ -25,7 +25,7 @@ export default function GlobalHeader() {
   ];
 
   return (
-    <section>
+    <section className="bg-[#e8f6f6]">
       <div className="pt-3">
         <div className='container'>
           <div className="flex flex-row items-center justify-between">
