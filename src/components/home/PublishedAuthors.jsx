@@ -6,7 +6,7 @@ const publishedAuthorsData = [
     id: 1,
     name: "PILLIP L. WILLIAMS",
     color: "#FF6B57",
-    description: "Meet Philip L. Williams, author of The Journey of Time. His writing leans into reflection, memory, and the quiet moments that shape who we become—designed to leave readers thoughtful and grounded.",
+    description: "Meet Phillip L. Williams, author of The Journey of Time. His writing leans into reflection, memory, and the quiet moments that shape who we become—designed to leave readers thoughtful and grounded.",
     profileHref: "/authors/philip",
     imageSrc: "/assets/images/PublishedAuthors/Phlip/freepik__centered-photo-portrait-of-samuel-black-male-early__70897.png",
     bookCoverSrc: "/assets/images/book-front-back/philip/front.jpg"

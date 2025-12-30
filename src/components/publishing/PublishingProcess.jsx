@@ -101,7 +101,7 @@ function ProcessCard({ step, index, className }) {
         </h3>
 
         {/* Body text – sans serif */}
-        <p className="mt-4 font-sans text-[15px] leading-relaxed text-black/100">
+        <p className="mt-4 font-sans text-[15px] leading-relaxed text-black/0">
           {step.body}
         </p>
       </div>
