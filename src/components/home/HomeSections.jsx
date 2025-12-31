@@ -5,7 +5,7 @@ import PublishedAuthors from "./PublishedAuthors";
 import RecommendedReads from "./RecommendedReads";
 import TestimonialsCarousel from "./TestimonialsCarousel";
 import FAQ from "./FAQ";
-import Footer from "./Footer";
+
 
 export default function HomeSections() {
   return (
@@ -15,7 +15,7 @@ export default function HomeSections() {
       <RecommendedReads />
       <TestimonialsCarousel />
       <FAQ />
-      <Footer />
+ 
     </>
   );
 }
