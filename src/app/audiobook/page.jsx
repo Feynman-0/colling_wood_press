@@ -1,6 +1,6 @@
 // src/app/audiobook/page.jsx
-import AudiobookHero from "@/components/Audiobook/AudiobookHero";
-import Audiobookjourney from "@/components/audiobook/AudiobookJourney";
+import AudiobookHero from "@/components/audiobook/AudiobookHero";
+import AudiobookJourney from "@/components/audiobook/AudiobookJourney";
 import AudiobookPackages from "@/components/audiobook/AudiobookPackages";
 import AudiobookJourneySection from "@/components/audiobook/AudiobookJourneySection";
 import AudiobookCTA from "@/components/audiobook/AudiobookCta";
@@ -10,7 +10,7 @@ export default function AudiobookPage() {
     <>
     
       <AudiobookHero />
-      <Audiobookjourney />
+      <AudiobookJourney />
       <AudiobookPackages />
       <AudiobookJourneySection />
       <AudiobookCTA />

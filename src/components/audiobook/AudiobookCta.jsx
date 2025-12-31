@@ -29,12 +29,13 @@ function useInViewDisappear(options = { threshold: 0.18, rootMargin: "0px 0px -1
 }
 
 /* ---------- magnetic button ---------- */
-function MagneticButton({ href, children, className }) {
-  const ref = useRef(null);
+import React from "react";
+
+const MagneticButton = React.forwardRef(function MagneticButton({ href, children, className }, ref) {
   const [xy, setXy] = useState({ x: 0, y: 0 });
 
   const onMove = (e) => {
-    const el = ref.current;
+    const el = ref?.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
     const dx = e.clientX - (r.left + r.width / 2);
@@ -46,19 +47,18 @@ function MagneticButton({ href, children, className }) {
   };
 
   return (
-    <Link href={href} legacyBehavior>
-      <a
-        ref={ref}
-        onMouseMove={onMove}
-        onMouseLeave={() => setXy({ x: 0, y: 0 })}
-        className={className}
-        style={{ transform: `translate(${xy.x}px, ${xy.y}px)` }}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={() => setXy({ x: 0, y: 0 })}
+      className={className}
+      style={{ transform: `translate(${xy.x}px, ${xy.y}px)` }}
+    >
+      {children}
     </Link>
   );
-}
+});
 
 /* ---------- CTA SECTION ---------- */
 export default function AudiobookCTA({
@@ -180,7 +180,7 @@ export default function AudiobookCTA({
             </div>
           </div>
 
-          <style jsx>{`
+          <style jsx global>{`
             @media (max-width: 768px) {
               .rounded-[42px] {
                 border-radius: 28px;

@@ -275,23 +275,19 @@ export default function AudiobookPackages({
 
                       {/* Buttons (ONLY changed hover color) */}
                       <div className="mt-6 flex flex-col gap-3">
-                        <Link href={ctaSecondary.href} legacyBehavior>
-                          <a className="bg-[#0B1B3B] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-white font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#EB6358] hover:text-white w-full whitespace-nowrap text-center">
-                            {ctaSecondary.text}
-                          </a>
+                        <Link href={ctaSecondary.href} className="bg-[#0B1B3B] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-white font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#EB6358] hover:text-white w-full whitespace-nowrap text-center">
+                          {ctaSecondary.text}
                         </Link>
 
-                        <Link href={ctaPrimary.href} legacyBehavior>
-                          <a className="bg-[#EB6358] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-white font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#0B1B3B] hover:text-white w-full whitespace-nowrap text-center">
-                            {ctaPrimary.text}
-                          </a>
+                        <Link href={ctaPrimary.href} className="bg-[#EB6358] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-white font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#0B1B3B] hover:text-white w-full whitespace-nowrap text-center">
+                          {ctaPrimary.text}
                         </Link>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <style jsx>{`
+                <style jsx global>{`
                   .book-card {
                     transform: translateY(0);
                   }

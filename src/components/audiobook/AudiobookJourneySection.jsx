@@ -228,10 +228,8 @@ export default function AudiobookJourneySection({
 
               {/* CTA (same button logic style as your hero) */}
               <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <Link href={cta.href} legacyBehavior>
-                  <a className="bg-[#EB6358] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-black font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#0B1B3B] hover:text-white w-full sm:w-auto whitespace-nowrap text-center">
-                    {cta.text}
-                  </a>
+                <Link href={cta.href} className="bg-[#EB6358] border-2 border-black shadow-[4px_4px_0_#1F2A44] text-black font-bold text-base px-6 py-2 rounded-xl transition-all duration-200 hover:bg-[#0B1B3B] hover:text-white w-full sm:w-auto whitespace-nowrap text-center">
+                  {cta.text}
                 </Link>
 
                 <button
@@ -247,7 +245,7 @@ export default function AudiobookJourneySection({
         </div>
 
         {/* Local CSS */}
-        <style jsx>{`
+        <style jsx global>{`
           .soft-grid {
             background-image:
               radial-gradient(rgba(31, 42, 68, 0.08) 1px, transparent 1px);
